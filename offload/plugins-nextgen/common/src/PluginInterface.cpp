@@ -1972,7 +1972,7 @@ int32_t GenericPluginTy::data_submit(int32_t DeviceId, void *TgtPtr,
 
 int32_t GenericPluginTy::data_submit_async(int32_t DeviceId, void *TgtPtr,
                                            void *HstPtr, int64_t Size,
-                                           __tgt_async_info *AsyncInfoPtr) {
+                                           __tgt_async_info *AsyncInfoPtr, bool InOrder) {
   auto Err = getDevice(DeviceId).dataSubmit(TgtPtr, HstPtr, Size, AsyncInfoPtr);
   if (Err) {
     REPORT("Failure to copy data from host to device. Pointers: host "
